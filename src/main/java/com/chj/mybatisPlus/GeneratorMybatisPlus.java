@@ -42,7 +42,7 @@ public class GeneratorMybatisPlus {
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL);
         dataSourceConfig.setTypeConvert(new MySqlTypeConvert());
-        dataSourceConfig.setUrl("jdbc:mysql://115.159.191.57:3306/sfb?tinyInt1isBit=false");
+        dataSourceConfig.setUrl("jdbc:mysql://115.159.191.57:3306/calligraphySystem?tinyInt1isBit=false");
         dataSourceConfig.setDriverName("com.mysql.jdbc.Driver");
         dataSourceConfig.setUsername("root");
         dataSourceConfig.setPassword("chj0526");
@@ -71,7 +71,8 @@ public class GeneratorMybatisPlus {
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
         //表和前缀处理
-        strategy.setInclude("USER_ROLE".split(","));
+        String table = "sys_resources,sys_role,sys_role_resources,sys_user,sys_user_role";//多个逗号隔开
+        strategy.setInclude(table.split(","));
        // String[] tablePre = new String[]{"dt_"};
         //strategy.setTablePrefix(tablePre);
         autoGenerator.setStrategy(strategy);
